@@ -5,9 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href = "Estilo_8.css" rel="stylesheet" type="text/css">
-    <script type = "text/JavaScript" src = ""></script>
+    <script type = "text/JavaScript" src = "Areas.js"></script>
 </head>
 <body>
-    
+    <header>Calculo de areas</header><br>
+    <p>Introduzca base y altura en formato 'punto decimal', no con la coma</p><br>
+    <main>
+        <div>
+            <form>
+                <input type="radio" name="Triangulo" id="triangulo">Triangulo
+                <input type="radio" name="Triangulo" id="cuadrado">Cuadrado <br>                
+                Base: <input size="4" id="base" placeholder="0.0"><br>
+                Altura: <input size="4" id="altura" placeholder="0.0"><br>
+                <input type="button" value="Calcular" onclick="CalcularArea()"><br>
+                El resultado es: <input type="text" size="6" id="restultado" readonly><br>
+                <input type="button" value="Borrar" onclick="Borrar()">
+            </form>
+        </div>
+        
+    </main>
 </body>
 </html>
