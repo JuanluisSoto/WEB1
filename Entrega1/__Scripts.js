@@ -34,8 +34,10 @@ function Play(){
 }
 
 function TiradaBot(){
+    alert("Dentro de la tirada del bot");
     let rand=Math.random()*100;
     let num=parseInt(rand%3);
+    alert("resultado bot " + arrMano[num]);
     return arrMano[num];
 }
 
@@ -91,4 +93,9 @@ function Finalizar(){
     }else if(res_player1<res_player2){
         document.getElementById("winner").textContent="2";
     }
+    setInterval(Reincio(),10000);
+}
+function Reincio(){
+    document.getElementById("Res_2").textContent=0;
+    document.getElementById("Res_1").textContent=0;
 }
