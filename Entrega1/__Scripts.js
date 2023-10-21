@@ -40,29 +40,38 @@ function TiradaBot(){
 }
 
 function Tirada(j1, j2){
+    let res_player1 = parseInt(document.getElementById("Res_1").textContent);
+    let res_player2 = parseInt(document.getElementById("Res_2").textContent);
+    
     if(j1==j2){
         alert("empate");
     }else{
         switch(j1){
             case "Piedra":
                 if(j2=="Papel"){
-                    alert("gana J2");
+                    let resultado = res_player2+1;
+                    document.getElementById("Res_2").textContent=resultado;
                 }else{
-                    alert("gana J1");
+                    let resultado =res_player1+1;
+                    document.getElementById("Res_1").textContent =resultado;
                 }
             break;
             case "Papel":
                 if(j2=="Tijera"){
-                    alert("gana J2");
+                    let resultado =res_player2+1;
+                    document.getElementById("Res_2").textContent =resultado;
                 }else{
-                    alert("gana J1");
+                    let resultado =res_player1+1;
+                    document.getElementById("Res_1").textContent =resultado;
                 }
             break;
             case "Tijera":
                 if(j2=="Piedra"){
-                    alert("gana J2");
+                    let resultado =res_player2+1;
+                    document.getElementById("Res_2").textContent =resultado;
                 }else{
-                    alert("gana J1");
+                    let resultado =res_player1+1;
+                    document.getElementById("Res_1").textContent =resultado;
                 }
             break;
             default:
@@ -72,6 +81,14 @@ function Tirada(j1, j2){
     }
 }
 
-function Borrar(){
-    alert("Boton borrar pulsado")
+function Finalizar(){
+    let res_player1 = parseInt(document.getElementById("Res_1").textContent);
+    let res_player2 = parseInt(document.getElementById("Res_2").textContent);
+    if(res_player1==res_player2){
+        document.getElementById("winner").textContent="Ha habido un empate";
+    }else if(res_player1>res_player2){
+        document.getElementById("winner").textContent="1";
+    }else if(res_player1<res_player2){
+        document.getElementById("winner").textContent="2";
+    }
 }
