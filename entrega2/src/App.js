@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NoteList from './NoteList';
 import NoteEditor from './NoteEditor';
-import './App.css' ;
+import './App.css';
 
 function App() {
-  return ( 
-    <div className="container mb-5 text-center bg-black bg-gradient text-white rounded">
-        <div className="text-white">
-          <h1>Notas</h1>
-        </div>
-        <div>
-          <NoteList />
-        </div> 
-        <div>
-            <NoteEditor />
-          </div>
+  const [notes, setNotes] = useState([]); 
+  const handleSaveNote = (newNote) => {
+    const updatedNotes = [...notes, newNote];
+    setNotes(updatedNotes);
+    // Guardar las notas actualizadas en localStorage
+    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+  };
+
+  return (
+    <div className="container mb-5 text-center text-white" >
+      <div className="text-white">
+        <h1>Notas</h1>
       </div>
+      <div>
+        <NoteList notes={notes} setNotes={setNotes} />
+      </div>
+      <div>
+        <NoteEditor onSaveNote={handleSaveNote} />
+      </div>
+    </div>
   );
 }
 

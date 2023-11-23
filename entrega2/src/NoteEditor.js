@@ -1,30 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
-function NoteEditor() {
+function NoteEditor({ onSaveNote }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [notes, setNotes] = useState([]);
   const titleInputRef = useRef();
 
-  useEffect(() => {
-    // Cargar notas desde localStorage al inicio
-    const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
-    setNotes(storedNotes);
-  }, []);
-
   const handleSaveNote = () => {
+    // if (!title || !content) {
+    //   alert('Por favor, completa tanto el título como el contenido.');
+    //   return;
+    // }
+
     const newNote = {
       id: Date.now(),
       title,
       content,
     };
-    const updatedNotes = [...notes, newNote];
-    setNotes(updatedNotes);
-    // Guardar las notas actualizadas en localStorage
-    localStorage.setItem('notes', JSON.stringify(updatedNotes));
+
+    onSaveNote(newNote);
+
     // Limpiar el formulario después de guardar
     setTitle('');
     setContent('');
+
     // Enfocar el campo de título después de guardar
     titleInputRef.current.focus();
   };
@@ -56,4 +54,5 @@ function NoteEditor() {
     </div>
   );
 }
+
 export default NoteEditor;
