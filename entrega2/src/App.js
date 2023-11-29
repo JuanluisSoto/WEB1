@@ -17,7 +17,7 @@ function App() {
   };
 
   return (
-  <div style={bodyStyle} class="rounded"> 
+  <div className="App" class="rounded"> 
       <div className="container mb-5 text-center text-white" >
         <div className="text-white">
           <h1>Notas</h1>
